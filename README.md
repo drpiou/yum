@@ -47,7 +47,7 @@ context.validateSync('');
 // [0] -> ''
 // [1] -> undefined
 
-const [result, error] = context.validateSync(true);
+context.validateSync(true);
 // [0] -> undefined
 // [1] -> YumError
 ```
