@@ -5,5 +5,9 @@ export default function merge<Yum extends YumTypeBase, Extends extends YumExtend
   extend: Extends,
   yum: Yum,
 ): YumMerge<Extends, Yum> {
-  return _merge({}, yum, extend) as YumMerge<Extends, Yum>;
+  if (yum.type === extend.type) {
+    return _merge({}, yum, extend) as YumMerge<Extends, Yum>;
+  } else {
+    return yum as YumMerge<Extends, Yum>;
+  }
 }
