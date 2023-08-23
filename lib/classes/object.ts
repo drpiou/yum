@@ -1,26 +1,12 @@
 import mapValues from 'lodash/mapValues';
+import _custom from '../rules/custom';
 import _label from '../rules/label';
 import _merge from '../rules/merge';
 import _nullable from '../rules/nullable';
 import _required from '../rules/required';
 import _shape from '../rules/shape';
 import _transform from '../rules/transform';
-import {
-  YumExtendsTypeBase,
-  YumLabel,
-  YumMerge,
-  YumNullable,
-  YumNullableRule,
-  YumObject,
-  YumObjectBase,
-  YumOptions,
-  YumRequired,
-  YumRequiredRule,
-  YumShape,
-  YumTransform,
-  YumTransformCallback,
-  YumTypeBase,
-} from '../types';
+import { YumCustom, YumExtendsTypeBase, YumLabel, YumMerge, YumNullable, YumNullableRule, YumObject, YumObjectBase, YumOptions, YumRequired, YumRequiredRule, YumShape, YumTransform, YumTransformCallback, YumTypeBase } from '../types';
 import _object from '../types/object';
 import { YumBaseClass } from './base';
 
@@ -35,6 +21,10 @@ export class YumObjectClass<Yum extends YumObjectBase = YumObject> extends YumBa
 
   label(label: string): YumObjectClass<YumLabel<Yum>> {
     return this.apply(() => _label(label, this._yum));
+  }
+
+  custom(custom: string): YumObjectClass<YumCustom<Yum>> {
+    return this.apply(() => _custom(custom, this._yum));
   }
 
   transform(callback: YumTransformCallback<Yum>): YumObjectClass<YumTransform<Yum>> {

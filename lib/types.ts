@@ -130,6 +130,16 @@ export type YumLabel<Yum extends YumLabelAccept> = Omit<Yum, keyof YumLabelType>
 
 export type YumLabelBase = YumLabel<YumLabelAccept>;
 
+export type YumCustomType = {
+  custom: string;
+};
+
+export type YumCustomAccept = YumTypeBase;
+
+export type YumCustom<Yum extends YumCustomAccept> = Omit<Yum, keyof YumCustomType> & YumCustomType;
+
+export type YumCustomBase = YumCustom<YumCustomAccept>;
+
 export type YumTransformCallback<Yum extends YumTransformAccept> = (value: any) => YumDefault<Yum>;
 
 export type YumTransformType<Yum extends YumTransformAccept> = {

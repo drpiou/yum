@@ -2,6 +2,7 @@ import _clone from '../rules/clone';
 import _validate from '../rules/validate';
 import _validateSync, { ValidateSyncReturnType } from '../rules/validateSync';
 import {
+  YumCustom,
   YumDefault,
   YumExtendsTypeBase,
   YumLabel,
@@ -14,7 +15,7 @@ import {
   YumTransformCallback,
   YumType,
   YumTypeBase,
-  YumValidateOptions,
+  YumValidateOptions
 } from '../types';
 
 export abstract class YumBaseClass<Yum extends YumTypeBase> {
@@ -51,6 +52,8 @@ export abstract class YumBaseClass<Yum extends YumTypeBase> {
   }
 
   abstract label(label: string): YumBaseClass<YumLabel<Yum>>;
+
+  abstract custom(custom: string): YumBaseClass<YumCustom<Yum>>;
 
   abstract transform(callback: YumTransformCallback<Yum>): YumBaseClass<YumTransform<Yum>>;
 

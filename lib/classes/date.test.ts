@@ -65,6 +65,14 @@ describe('date', () => {
     expect(result).toBe('Label');
   });
 
+  test('custom', () => {
+    const context = date().custom('password');
+
+    const result = context.getSchema().custom;
+
+    expect(result).toBe('password');
+  });
+
   test('transform', () => {
     const context = date().transform((v) => new Date(v as never));
 

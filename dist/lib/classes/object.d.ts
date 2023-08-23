@@ -1,9 +1,10 @@
-import { YumExtendsTypeBase, YumLabel, YumMerge, YumNullable, YumNullableRule, YumObject, YumObjectBase, YumOptions, YumRequired, YumRequiredRule, YumShape, YumTransform, YumTransformCallback, YumTypeBase } from '../types';
+import { YumCustom, YumExtendsTypeBase, YumLabel, YumMerge, YumNullable, YumNullableRule, YumObject, YumObjectBase, YumOptions, YumRequired, YumRequiredRule, YumShape, YumTransform, YumTransformCallback, YumTypeBase } from '../types';
 import { YumBaseClass } from './base';
 export declare class YumObjectClass<Yum extends YumObjectBase = YumObject> extends YumBaseClass<Yum> {
     protected _yum: Yum;
     constructor(options?: YumOptions);
     label(label: string): YumObjectClass<YumLabel<Yum>>;
+    custom(custom: string): YumObjectClass<YumCustom<Yum>>;
     transform(callback: YumTransformCallback<Yum>): YumObjectClass<YumTransform<Yum>>;
     merge<Extends extends YumExtendsTypeBase<Yum>>(merge: YumObjectClass<Extends>): YumObjectClass<YumMerge<Extends, Yum>>;
     nullable<Rule extends YumNullableRule>(rule: Rule): YumObjectClass<YumNullable<Rule, Yum>>;
