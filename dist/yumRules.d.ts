@@ -1,4 +1,5 @@
 import clone from './rules/clone';
+import custom, { hasCustom } from './rules/custom';
 import format, { hasFormat } from './rules/format';
 import include, { hasInclude } from './rules/include';
 import label, { hasLabel } from './rules/label';
@@ -15,7 +16,9 @@ import validate from './rules/validate';
 import validateSync from './rules/validateSync';
 export declare const yumRules: {
     clone: typeof clone;
+    custom: typeof custom;
     format: typeof format;
+    hasCustom: typeof hasCustom;
     hasFormat: typeof hasFormat;
     hasInclude: typeof hasInclude;
     hasLabel: typeof hasLabel;
