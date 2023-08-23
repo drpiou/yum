@@ -1,3 +1,4 @@
+import _custom from '../rules/custom';
 import _include from '../rules/include';
 import _label from '../rules/label';
 import _merge from '../rules/merge';
@@ -6,26 +7,7 @@ import _of from '../rules/of';
 import _range from '../rules/range';
 import _required from '../rules/required';
 import _transform from '../rules/transform';
-import {
-  YumArray,
-  YumArrayBase,
-  YumExtendsTypeBase,
-  YumInclude,
-  YumIncludeRule,
-  YumLabel,
-  YumMerge,
-  YumNullable,
-  YumNullableRule,
-  YumOf,
-  YumOfRule,
-  YumOptions,
-  YumRange,
-  YumRangeRule,
-  YumRequired,
-  YumRequiredRule,
-  YumTransform,
-  YumTransformCallback,
-} from '../types';
+import { YumArray, YumArrayBase, YumCustom, YumExtendsTypeBase, YumInclude, YumIncludeRule, YumLabel, YumMerge, YumNullable, YumNullableRule, YumOf, YumOfRule, YumOptions, YumRange, YumRangeRule, YumRequired, YumRequiredRule, YumTransform, YumTransformCallback } from '../types';
 import _array from '../types/array';
 import { YumBaseClass } from './base';
 
@@ -40,6 +22,10 @@ export class YumArrayClass<Yum extends YumArrayBase = YumArray> extends YumBaseC
 
   label(label: string): YumArrayClass<YumLabel<Yum>> {
     return this.apply(() => _label(label, this._yum));
+  }
+
+  custom(custom: string): YumArrayClass<YumCustom<Yum>> {
+    return this.apply(() => _custom(custom, this._yum));
   }
 
   transform(callback: YumTransformCallback<Yum>): YumArrayClass<YumTransform<Yum>> {

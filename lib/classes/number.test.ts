@@ -65,6 +65,14 @@ describe('number', () => {
     expect(result).toBe('Label');
   });
 
+  test('custom', () => {
+    const context = number().custom('password');
+
+    const result = context.getSchema().custom;
+
+    expect(result).toBe('password');
+  });
+
   test('transform', () => {
     const context = number().transform((v) => Number(v));
 

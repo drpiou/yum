@@ -73,6 +73,14 @@ describe('mixed', () => {
     expect(result).toBe('Label');
   });
 
+  test('custom', () => {
+    const context = mixed().custom('password');
+
+    const result = context.getSchema().custom;
+
+    expect(result).toBe('password');
+  });
+
   test('transform', () => {
     const context = mixed().transform((v) => String(v));
 

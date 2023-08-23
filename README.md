@@ -53,6 +53,7 @@ The `@drpiou/yum` package provides a validator module written in TypeScript.
       - [object](#object)
     - [Rules](#rules)
       - [clone](#clone)
+      - [custom](#custom)
       - [format](#format)
       - [include](#include)
       - [label](#label)
@@ -899,6 +900,22 @@ const faulty = validateSync(null, base);
 // faulty[1].reasons[0].type -> 'string'
 // faulty[1].reasons[0].rule -> 'nullable'
 // faulty[1].reasons[0].condition -> false
+```
+
+##### `custom`
+
+```typescript
+import { yumRules, yumTypes } from '@drpiou/yum';
+
+const { custom, label, string, validateSync } = yumTypes;
+
+const context = custom('password', label('MyString', string()));
+
+if (yumRules.hasCustom(context)) {
+  if (context.custom === 'password') {
+    //
+  }
+}
 ```
 
 ##### `format`

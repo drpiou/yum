@@ -1,23 +1,10 @@
+import _custom from '../rules/custom';
 import _label from '../rules/label';
 import _merge from '../rules/merge';
 import _nullable from '../rules/nullable';
 import _required from '../rules/required';
 import _transform from '../rules/transform';
-import {
-  YumDefault,
-  YumExtendsTypeBase,
-  YumLabel,
-  YumMerge,
-  YumMixed,
-  YumMixedBase,
-  YumNullable,
-  YumNullableRule,
-  YumRequired,
-  YumRequiredRule,
-  YumTransform,
-  YumTransformCallback,
-  YumTypeBase,
-} from '../types';
+import { YumCustom, YumDefault, YumExtendsTypeBase, YumLabel, YumMerge, YumMixed, YumMixedBase, YumNullable, YumNullableRule, YumRequired, YumRequiredRule, YumTransform, YumTransformCallback, YumTypeBase } from '../types';
 import _mixed from '../types/mixed';
 import _mixedOf from '../types/mixedOf';
 import { YumBaseClass } from './base';
@@ -39,6 +26,10 @@ export class YumMixedClass<Yum extends YumMixedBase = YumMixed> extends YumBaseC
 
   label(label: string): YumMixedClass<YumLabel<Yum>> {
     return this.apply(() => _label(label, this._yum));
+  }
+
+  custom(custom: string): YumMixedClass<YumCustom<Yum>> {
+    return this.apply(() => _custom(custom, this._yum));
   }
 
   transform(callback: YumTransformCallback<Yum>): YumMixedClass<YumTransform<Yum>> {

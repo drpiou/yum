@@ -74,6 +74,14 @@ describe('array', () => {
     expect(result).toBe('Label');
   });
 
+  test('custom', () => {
+    const context = array().custom('password');
+
+    const result = context.getSchema().custom;
+
+    expect(result).toBe('password');
+  });
+
   test('transform', () => {
     const context = array().transform((v) => castArray(v));
 

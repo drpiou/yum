@@ -1,3 +1,4 @@
+import _custom from '../rules/custom';
 import _format from '../rules/format';
 import _include from '../rules/include';
 import _label from '../rules/label';
@@ -7,29 +8,7 @@ import _range from '../rules/range';
 import _regex from '../rules/regex';
 import _required from '../rules/required';
 import _transform from '../rules/transform';
-import {
-  YumExtendsTypeBase,
-  YumFormat,
-  YumFormatOptions,
-  YumFormatRule,
-  YumInclude,
-  YumIncludeRule,
-  YumLabel,
-  YumMerge,
-  YumNullable,
-  YumNullableRule,
-  YumOptions,
-  YumRange,
-  YumRangeRule,
-  YumRegex,
-  YumRegexRule,
-  YumRequired,
-  YumRequiredRule,
-  YumString,
-  YumStringBase,
-  YumTransform,
-  YumTransformCallback,
-} from '../types';
+import { YumCustom, YumExtendsTypeBase, YumFormat, YumFormatOptions, YumFormatRule, YumInclude, YumIncludeRule, YumLabel, YumMerge, YumNullable, YumNullableRule, YumOptions, YumRange, YumRangeRule, YumRegex, YumRegexRule, YumRequired, YumRequiredRule, YumString, YumStringBase, YumTransform, YumTransformCallback } from '../types';
 import _string from '../types/string';
 import { YumBaseClass } from './base';
 
@@ -44,6 +23,10 @@ export class YumStringClass<Yum extends YumStringBase = YumString> extends YumBa
 
   label(label: string): YumStringClass<YumLabel<Yum>> {
     return this.apply(() => _label(label, this._yum));
+  }
+
+  custom(custom: string): YumStringClass<YumCustom<Yum>> {
+    return this.apply(() => _custom(custom, this._yum));
   }
 
   transform(callback: YumTransformCallback<Yum>): YumStringClass<YumTransform<Yum>> {

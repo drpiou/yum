@@ -74,6 +74,14 @@ describe('object', () => {
     expect(result).toBe('Label');
   });
 
+  test('custom', () => {
+    const context = object().custom('password');
+
+    const result = context.getSchema().custom;
+
+    expect(result).toBe('password');
+  });
+
   test('transform', () => {
     const context = object().transform((v) => (isPlainObject(v) ? v : { _und: v }));
 

@@ -1,6 +1,6 @@
 {
   "name": "@drpiou/yum",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Yet Another Validator Module.",
   "keywords": [],
   "author": "Alex <hello@drpiou.dev>",
@@ -46,7 +46,7 @@
     "yarn": "please-use-npm"
   },
   "devDependencies": {
-    "@drpiou/ts-utils": "0.0.6",
+    "@drpiou/ts-utils": "^0.0.7",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.6.4",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
@@ -59,7 +59,7 @@
     "prettier": "^2.8.8",
     "typescript": "^4.6.4",
     "utility-types": "^3.10.0",
-    "vite": "^4.3.2",
+    "vite": "^4.4.9",
     "vite-plugin-dts": "^2.3.0",
     "vitest": "^0.30.1"
   }
